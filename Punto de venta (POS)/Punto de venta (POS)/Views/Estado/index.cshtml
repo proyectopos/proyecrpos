@@ -1,0 +1,30 @@
+﻿@model Punto_de_venta__POS_.Models.EstadoVista
+
+<h2>Estados (Pais: @Model.pais.NombrePais)</h2>
+
+<p>
+    @Html.ActionLink("Crear nuevo Estado", "Create", new { id = Model.pais.PaisId })
+</p>
+
+<table class="table">
+    <tr>
+        <th>Código de estado</th>
+        <th>Nombre de estado</th>
+        <th>Nombre de Pais</th>
+        <th></th>
+    </tr>
+
+    @foreach (var estado in Model.estados)
+    {
+        <tr>
+            <td>@estado.EstadoId</td>
+            <td>@estado.NombreEstado</td>
+            <td>@estado.NombrePais</td>
+            <td>
+                @Html.ActionLink("Editar", "Edit", new { id = estado.EstadoId }) |
+                @Html.ActionLink("Eliminar", "Delete", new { id = estado.EstadoId }) |
+                @Html.ActionLink("Ciudades", "City", new { id = estado.EstadoId }) |
+            </td>
+        </tr>
+    }
+</table>

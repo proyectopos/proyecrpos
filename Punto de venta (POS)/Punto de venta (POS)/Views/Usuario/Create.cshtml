@@ -1,0 +1,40 @@
+﻿@model Punto_de_venta__POS_.Models.Usuario
+
+<h2>Crear Usuario</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Nombre)
+        @Html.TextBoxFor(model => model.Nombre, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.Nombre)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.Apellido)
+        @Html.TextBoxFor(model => model.Apellido, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.Apellido)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.Usuario_)
+        @Html.TextBoxFor(model => model.Usuario_, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.Usuario_)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.Contrasena)
+        @Html.TextBoxFor(model => model.Contrasena, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.Contrasena)
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.CodigoRol)
+        @Html.DropDownListFor(model => model.CodigoRol, new SelectList(ViewBag.Roles, "CodigoRol", "NombreRol"), "Seleccionar Rol", new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.CodigoRol)
+    </div>
+
+    <p>
+        <input type="submit" value="Guardar" class="btn btn-primary" />
+        @Html.ActionLink("Cancelar", "Index", null, new { @class = "btn btn-default" })
+    </p>
+}

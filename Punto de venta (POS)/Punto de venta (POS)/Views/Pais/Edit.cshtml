@@ -1,0 +1,21 @@
+﻿@model Punto_de_venta__POS_.Models.Pais
+
+<h2>Editar Pais</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+
+    @Html.HiddenFor(model => model.PaisId)
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.NombrePais)
+        @Html.TextBoxFor(model => model.NombrePais, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.NombrePais)
+    </div>
+
+    <p>
+        <input type="submit" value="Guardar" class="btn btn-primary" />
+        @Html.ActionLink("Cancelar", "Index", null, new { @class = "btn btn-default" })
+    </p>
+}

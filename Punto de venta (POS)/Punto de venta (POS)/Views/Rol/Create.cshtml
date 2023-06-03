@@ -1,0 +1,19 @@
+﻿@model Punto_de_venta__POS_.Models.Rol
+
+<h2>Crear Rol</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.NombreRol)
+        @Html.TextBoxFor(model => model.NombreRol, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.NombreRol)
+    </div>
+
+    <p>
+        <input type="submit" value="Guardar" class="btn btn-primary" />
+        @Html.ActionLink("Cancelar", "Index", null, new { @class = "btn btn-default" })
+    </p>
+}

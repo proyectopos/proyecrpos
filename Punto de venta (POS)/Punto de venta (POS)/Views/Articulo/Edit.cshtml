@@ -1,0 +1,53 @@
+﻿@model Punto_de_venta__POS_.Models.Articulo
+
+<h2>Editar categoría</h2>
+
+@using (Html.BeginForm("Edit", "Articulo", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    @Html.HiddenFor(model => model.ArticuloId)
+    <input  type="hidden" value="@Model.Imagen" name="imageTmp"/>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.CategoriaId, "Categoría")
+        @Html.DropDownListFor(model => model.CategoriaId, new SelectList(ViewBag.Categoria, "CategoriaId", "NombreCategoria"), "Seleccionar Categoria", new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.CategoriaId)
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.NombreArticulo)
+        @Html.TextBoxFor(model => model.NombreArticulo, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.NombreArticulo)
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Descripcion)
+        @Html.TextAreaFor(model => model.Descripcion, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.Descripcion)
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Stock)
+        @Html.TextBoxFor(model => model.Stock, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.Stock)
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Precio)
+        @Html.TextBoxFor(model => model.Precio, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.Precio)
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.ImagenForm)
+        <input type="file" name="ImagenForm" />
+        @Html.ValidationMessageFor(model => model.ImagenForm)
+    </div>
+
+    <p>
+        <input type="submit" value="Guardar" class="btn btn-primary" />
+        @Html.ActionLink("Cancelar", "Index", null, new { @class = "btn btn-default" })
+    </p>
+}

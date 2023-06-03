@@ -1,0 +1,15 @@
+﻿@model Punto_de_venta__POS_.Models.Categoria
+
+<h2>Eliminar categoría</h2>
+
+<div>
+    <h4>¿Estás seguro de que deseas eliminar esta categoría?</h4>
+    <h2>@Model.NombreCategoria</h2>
+
+    @using (Html.BeginForm())
+    {
+        @Html.HiddenFor(model => model.CategoriaId)
+        <input type="submit" value="Eliminar" class="btn btn-danger" /> 
+        @Html.ActionLink("Cancelar", "Index", null, new { @class = "btn btn-default" })
+    }
+</div>

@@ -1,0 +1,21 @@
+﻿@model Punto_de_venta__POS_.Models.Categoria
+
+<h2>Editar categoría</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+
+    @Html.HiddenFor(model => model.CategoriaId)
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.NombreCategoria)
+        @Html.TextBoxFor(model => model.NombreCategoria, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.NombreCategoria)
+    </div>
+
+    <p>
+        <input type="submit" value="Guardar" class="btn btn-primary" />
+        @Html.ActionLink("Cancelar", "Index", null, new { @class = "btn btn-default" })
+    </p>
+}

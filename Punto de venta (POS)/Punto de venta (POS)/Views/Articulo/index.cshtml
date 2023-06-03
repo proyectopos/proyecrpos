@@ -1,0 +1,37 @@
+﻿@model List<Punto_de_venta__POS_.Models.Articulo>
+
+<h2>Articulos</h2>
+
+<p>
+    @Html.ActionLink("Crear nuevo articulo", "Create")
+</p>
+
+<table class="table">
+    <tr>
+        <th>Código de articulo</th>
+        <th>Nombre de articulo</th>
+        <th>Descripción</th>
+        <th>Precio</th>
+        <th>Existencias</th>
+        <th>Categoria</th>
+        <th>Imagen</th>
+        <th></th>
+    </tr>
+
+    @foreach (var articulo in Model)
+    {
+        <tr>
+            <td>@articulo.ArticuloId</td>
+            <td>@articulo.NombreArticulo</td>
+            <td>@articulo.Descripcion</td>
+            <td>Q.@articulo.Precio</td>
+            <td>@articulo.Stock</td>
+            <td>@articulo.NombreCategoria</td>
+            <td style="width:20%"><img style="width:100%" src="data:image/jpeg;base64,@articulo.Imagen" alt="Imagen del artículo" /></td>
+            <td>
+                @Html.ActionLink("Editar", "Edit", new { id = articulo.ArticuloId }) |
+                @Html.ActionLink("Eliminar", "Delete", new { id = articulo.ArticuloId })
+            </td>
+        </tr>
+    }
+</table>

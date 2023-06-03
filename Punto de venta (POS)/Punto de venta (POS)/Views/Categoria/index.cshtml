@@ -1,0 +1,27 @@
+﻿@model List<Punto_de_venta__POS_.Models.Categoria>
+
+<h2>Categorías</h2>
+
+<p>
+    @Html.ActionLink("Crear nueva categoría", "Create")
+</p>
+
+<table class="table">
+    <tr>
+        <th>Código de categoría</th>
+        <th>Nombre de categoría</th>
+        <th></th>
+    </tr>
+
+    @foreach (var categoria in Model)
+    {
+        <tr>
+            <td>@categoria.CategoriaId</td>
+            <td>@categoria.NombreCategoria</td>
+            <td>
+                @Html.ActionLink("Editar", "Edit", new { id = categoria.CategoriaId }) |
+                @Html.ActionLink("Eliminar", "Delete", new { id = categoria.CategoriaId })
+            </td>
+        </tr>
+    }
+</table>

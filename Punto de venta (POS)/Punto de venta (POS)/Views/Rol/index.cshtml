@@ -1,0 +1,27 @@
+﻿@model List<Punto_de_venta__POS_.Models.Rol>
+
+<h2>Roles</h2>
+
+<p>
+    @Html.ActionLink("Crear un nuevo Rol", "Create")
+</p>
+
+<table class="table">
+    <tr>
+        <th>Código de rol</th>
+        <th>Nombre de rol</th>
+        <th></th>
+    </tr>
+
+    @foreach (var rol in Model)
+    {
+        <tr>
+            <td>@rol.CodigoRol</td>
+            <td>@rol.NombreRol</td>
+            <td>
+                @Html.ActionLink("Editar", "Edit", new { id = rol.CodigoRol }) |
+                @Html.ActionLink("Eliminar", "Delete", new { id = rol.CodigoRol })
+            </td>
+        </tr>
+    }
+</table>

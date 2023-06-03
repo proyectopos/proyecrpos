@@ -1,0 +1,22 @@
+﻿@model Punto_de_venta__POS_.Models.Estado
+
+<h2>Editar Estado</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+
+    @Html.HiddenFor(model => model.EstadoId)
+    @Html.HiddenFor(model => model.PaisId)
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.NombreEstado)
+        @Html.TextBoxFor(model => model.NombreEstado, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.NombreEstado)
+    </div>
+
+    <p>
+        <input type="submit" value="Guardar" class="btn btn-primary" />
+        @Html.ActionLink("Cancelar", "Back", new { id = @Model.PaisId }, new { @class = "btn btn-default" })
+    </p>
+}

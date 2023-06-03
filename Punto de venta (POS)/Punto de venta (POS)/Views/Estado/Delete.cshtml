@@ -1,0 +1,16 @@
+﻿@model Punto_de_venta__POS_.Models.Estado
+
+<h2>Eliminar Estado</h2>
+
+<div>
+    <h4>¿Estás seguro de que deseas eliminar este Estado?</h4>
+    <h2>@Model.NombreEstado</h2>
+
+    @using (Html.BeginForm())
+    {
+        @Html.HiddenFor(model => model.EstadoId)
+        @Html.HiddenFor(model => model.PaisId)
+        <input type="submit" value="Eliminar" class="btn btn-danger" />
+        @Html.ActionLink("Cancelar", "Back", new { id = @Model.PaisId }, new { @class = "btn btn-default" })
+    }
+</div>

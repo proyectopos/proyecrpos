@@ -1,0 +1,19 @@
+﻿@model Punto_de_venta__POS_.Models.Ciudad
+
+<h2>Crear Ciudad</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+    <input type="hidden" name="EstadoId" value="@ViewBag.EstadoId" />
+    <div class="form-group">
+        @Html.LabelFor(model => model.NombreCiudad)
+        @Html.TextBoxFor(model => model.NombreCiudad, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.NombreCiudad)
+    </div>
+
+    <p>
+        <input type="submit" value="Guardar" class="btn btn-primary" />
+        @Html.ActionLink("Cancelar", "Back", new { id = @ViewBag.EstadoId }, new { @class = "btn btn-default" })
+    </p>
+}

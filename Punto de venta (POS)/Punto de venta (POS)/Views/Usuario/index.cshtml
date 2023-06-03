@@ -1,0 +1,33 @@
+﻿@model List<Punto_de_venta__POS_.Models.Usuario>
+
+<h2>Usuarios</h2>
+
+<p>
+    @Html.ActionLink("Crear nuevo usuario", "Create")
+</p>
+
+<table class="table">
+    <tr>
+        <th>Código de usuario</th>
+        <th>Nombres</th>
+        <th>Apelidos</th>
+        <th>Usuario</th>
+        <th>Rol</th>
+        <th></th>
+    </tr>
+
+    @foreach (var usuario in Model)
+    {
+        <tr>
+            <td>@usuario.CodigoUsuario</td>
+            <td>@usuario.Nombre</td>
+            <td>@usuario.Apellido</td>
+            <td>@usuario.Usuario_</td>
+            <td>@usuario.NombreRol</td>
+            <td>
+                @Html.ActionLink("Editar", "Edit", new { id = usuario.CodigoUsuario }) |
+                @Html.ActionLink("Eliminar", "Delete", new { id = usuario.CodigoUsuario })
+            </td>
+        </tr>
+    }
+</table>
